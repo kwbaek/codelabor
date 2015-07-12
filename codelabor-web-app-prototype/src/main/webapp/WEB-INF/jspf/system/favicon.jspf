@@ -1,0 +1,3 @@
+<!-- Favicon -->
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/system/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="${pageContext.request.contextPath}/images/system/favicon.ico" type="image/x-icon" />

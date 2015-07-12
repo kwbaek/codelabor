@@ -1,0 +1,10 @@
+<%@ include file="/WEB-INF/jspf/taglib.jspf"%>
+<!-- Footer -->
+<div id="footer">
+	<div class="xright">
+		<spring:eval expression="@systemProperties.getProperty('system.copyright')" />
+	</div>
+	<div class="clear">
+		<hr />
+	</div>
+</div>

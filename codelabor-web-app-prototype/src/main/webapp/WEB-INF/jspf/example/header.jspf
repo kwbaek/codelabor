@@ -1,0 +1,11 @@
+<%@ include file="/WEB-INF/jspf/taglib.jspf"%>
+<!-- Banner -->
+<div id="banner">
+	<div id="bannerLeft">
+		<c:url var="contextPathUrl" value="/" />
+		<a href="${contextPathUrl}"><spring:message code="heading.web.app.name" /></a>
+	</div>
+	<div class="clear">
+		<hr />
+	</div>
+</div>

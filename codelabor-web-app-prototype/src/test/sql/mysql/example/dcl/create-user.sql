@@ -1,0 +1,1 @@
+GRANT create, drop, insert, update, delete, select, index, alter on test.* TO 'scott'@'%' IDENTIFIED BY 'tiger';

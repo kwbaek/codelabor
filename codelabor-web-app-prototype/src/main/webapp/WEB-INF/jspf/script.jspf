@@ -1,0 +1,11 @@
+<!-- IE JavaScript -->
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/E9.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<!-- jQuery JavaScript -->
+<script src="${pageContext.request.contextPath}/js/system/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}<spring:theme code="theme.directory"/>/jquery-ui.min.js" type="text/javascript"></script>
+<!-- User defined Java Script -->
+<script src="${pageContext.request.contextPath}/js/common/common.js" type="text/javascript" ></script>

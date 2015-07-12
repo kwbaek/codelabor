@@ -1,0 +1,2 @@
+<!-- Theme CSS -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}<spring:theme code="theme.directory"/>/css/import.css" type="text/css"/>

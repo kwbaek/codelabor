@@ -1,0 +1,34 @@
+<%@ include file="/WEB-INF/jspf/taglib.jspf"%>
+<sec:authorize access="hasRole('ROLE_DEVELOPER')">
+	<h2>Debug Infomation</h2>
+
+	<h3>Security</h3>
+	<dl>
+		<sec:authentication property="principal" var="principal" />
+		<dt>
+			<code>principal</code>
+		</dt>
+		<dd>
+			<code>${principal}</code>
+		</dd>
+		<sec:authorize access="isAuthenticated()">
+			<dt>
+				<code>Username</code>
+			</dt>
+			<dd>
+				<code>
+					<sec:authentication property="principal.username" />
+				</code>
+			</dd>
+		</sec:authorize>
+	</dl>
+
+	<h3>Page</h3>
+	<log:dump scope="page" />
+	<h3>Request</h3>
+	<log:dump scope="request" />
+	<h3>Session</h3>
+	<log:dump scope="session" />
+	<h3>Application</h3>
+	<log:dump scope="application" />
+</sec:authorize>

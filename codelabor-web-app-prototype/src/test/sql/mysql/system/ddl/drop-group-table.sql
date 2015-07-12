@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS group_members;
+DROP TABLE IF EXISTS group_authorities;
+DROP TABLE IF EXISTS GROUPS;

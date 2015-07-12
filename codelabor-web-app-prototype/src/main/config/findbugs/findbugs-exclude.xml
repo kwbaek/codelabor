@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter xmlns="http://findbugs.sourceforge.net/filter/3.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://findbugs.sourceforge.net/filter/3.0.0 https://findbugs.googlecode.com/git/findbugs/etc/findbugsfilter.xsd">
+	<Match>
+		<Class
+			name="org.codelabor.example.error.web.controller.DividedByZeroController" />
+		<Method name="dividedByZero" />
+		<Bug pattern="DLS_DEAD_LOCAL_STORE" />
+	</Match>
+</FindBugsFilter>

@@ -1,0 +1,26 @@
+<%@ include file="/WEB-INF/jspf/taglib.jspf"%>
+<div class="xleft">
+	<span id="publishDate">Last Published: </span> | <span id="projectVersion">Version: </span>
+	<sec:authorize access="isAuthenticated()">
+		| <span id="username">Username: <sec:authentication property="principal.username" /></span>
+	</sec:authorize>
+</div>
+<div class="xright">
+	<span id="language">Language: <a href="?language=en">en</a> | <a href="?language=ko">ko</a>
+	</span> <span id="theme">Theme: <a href="?theme=maven-application">application</a> | <a href="?theme=maven-classic">classic</a> | <a
+		href="?theme=maven-default">default</a> | <a href="?theme=maven-fluido">fluido</a> | <a href="?theme=maven-stylus">stylus</a>
+	</span> <br />
+	<sec:authorize access="isAnonymous()">
+		<c:url var="loginUrl" value="/example/authentication/prepareLogin" />
+		<a href="${loginUrl}"><spring:message code="button.login" /></a>
+	</sec:authorize>
+	<sec:authorize access="isAuthenticated()">
+		<c:url var="logoutUrl" value="/example/authentication/logout" />
+		<form action="${logoutUrl}" method="post">
+			<input type="submit" value="<spring:message code="button.logout"/>" /> <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		</form>
+	</sec:authorize>
+</div>
+<div class="clear">
+	<hr />
+</div>

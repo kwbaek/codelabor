@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="helloWorldPdfView" class="org.codelabor.example.helloworld.web.view.HelloWorldPdfView" />
+	<bean id="helloWorldExcelView" class="org.codelabor.example.helloworld.web.view.HelloWorldExcelView" />
+	<bean id="helloWorldXmlView" class="org.codelabor.example.helloworld.web.view.HelloWorldXmlView">
+		<property name="marshaller" ref="xmlMarshaller" />
+		<property name="contentType" value="application/xml;charset=UTF-8" />
+	</bean>
+	<bean id="empListExcelView" class="org.codelabor.example.emp.web.view.EmpListExcelView" />
+	<bean id="xmlMarshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
+        <property name="autodetectAnnotations" value="true" />
+        <property name="supportedClasses">
+        	<list>
+        		<value>java.lang.String</value>
+        		<value>java.util.List</value>
+        	</list>
+        </property>
+    </bean>
+</beans>
