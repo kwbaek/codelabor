@@ -114,7 +114,7 @@ public class PhoneNumberUtilTest {
 	@Test
 	public final void testMakeCountryCodeOrderedMap() {
 		Set<String> regionsSet = phoneNumberUtil.getSupportedRegions();
-		Map map = new TreeMap();
+		Map<Integer, String> map = new TreeMap<Integer, String>();
 		for (String regionCode : regionsSet) {
 			int countryCode = phoneNumberUtil
 					.getCountryCodeForRegion(regionCode);
