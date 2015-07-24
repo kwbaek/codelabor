@@ -30,15 +30,15 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.Assert;
 
 /**
  * @author Sang Jae Shin
- * 
+ *
  */
 public class PaginationTag extends SimpleTagSupport {
 
-	private final static Logger logger = LoggerFactory
-			.getLogger(PaginationTag.class);
+	private final static Logger logger = LoggerFactory.getLogger(PaginationTag.class);
 
 	protected String cssClass;
 	private int currentPageNo;
@@ -81,15 +81,13 @@ public class PaginationTag extends SimpleTagSupport {
 		queryString = request.getQueryString();
 
 		// max row per page
-		String maxRowPerPageString = request
-				.getParameter(maxRowPerPageParamName);
+		String maxRowPerPageString = request.getParameter(maxRowPerPageParamName);
 		if (StringUtils.isNotBlank(maxRowPerPageString)) {
 			maxRowPerPage = Integer.parseInt(maxRowPerPageString);
 		}
 
 		// total count
-		int totalPageCount = (int) Math.ceil((double) numberOfRow
-				/ (double) maxRowPerPage);
+		int totalPageCount = (int) Math.ceil((double) numberOfRow / (double) maxRowPerPage);
 
 		// page number
 		int firstPageNo = 1;
@@ -105,16 +103,13 @@ public class PaginationTag extends SimpleTagSupport {
 			StringBuilder sb = new StringBuilder();
 			sb.append(pageNoParamName).append(" is exeeded.");
 			sb.append(" (");
-			sb.append("requested page number: ").append(currentPageNo)
-					.append(", ");
+			sb.append("requested page number: ").append(currentPageNo).append(", ");
 			sb.append("last page number: ").append(lastPageNo).append(')');
 			throw new JspException(sb.toString());
 		}
 
 		// current index
-		lastPageNoOnCurrentIndex = ((int) Math.ceil((double) currentPageNo
-				/ (double) maxIndexPerPage))
-				* maxIndexPerPage;
+		lastPageNoOnCurrentIndex = ((int) Math.ceil((double) currentPageNo / (double) maxIndexPerPage)) * maxIndexPerPage;
 		firstPageNoOnCurrentIndex = (lastPageNoOnCurrentIndex - maxIndexPerPage) + 1;
 
 		// compensate page number
@@ -123,8 +118,7 @@ public class PaginationTag extends SimpleTagSupport {
 		}
 
 		// first page number on previous, next index
-		firstPageNoOnPreviousIndex = firstPageNoOnCurrentIndex
-				- maxIndexPerPage;
+		firstPageNoOnPreviousIndex = firstPageNoOnCurrentIndex - maxIndexPerPage;
 		firstPageNoOnNextIndex = lastPageNoOnCurrentIndex + 1;
 
 		// compensate page number
@@ -139,8 +133,7 @@ public class PaginationTag extends SimpleTagSupport {
 		firstPageNoOnFirstIndex = firstPageNo;
 
 		// last page number of last index
-		lastPageNoOnLastIndex = ((int) Math.ceil((double) numberOfRow
-				/ (double) maxRowPerPage));
+		lastPageNoOnLastIndex = ((int) Math.ceil((double) numberOfRow / (double) maxRowPerPage));
 
 		// debug
 		logger.debug("queryString: {}", queryString);
@@ -268,8 +261,7 @@ public class PaginationTag extends SimpleTagSupport {
 		return queryString;
 	}
 
-	protected String replacePageNoInQueryString(String queryString, int pageNo,
-			int maxRowPerPage) {
+	protected String replacePageNoInQueryString(String queryString, int pageNo, int maxRowPerPage) {
 		String replacedQueryString = null;
 		if (StringUtils.isNotBlank(queryString)) {
 			if (StringUtils.contains(queryString, pageNoParamName)) {
@@ -285,8 +277,7 @@ public class PaginationTag extends SimpleTagSupport {
 				StringBuilder sb = new StringBuilder();
 				sb.append(pageNoParamName).append('=').append(pageNo);
 				sb.append('&');
-				sb.append(maxRowPerPageParamName).append('=')
-						.append(maxRowPerPage);
+				sb.append(maxRowPerPageParamName).append('=').append(maxRowPerPage);
 				sb.append('&');
 				sb.append(queryString);
 				replacedQueryString = sb.toString();
@@ -306,6 +297,7 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the cssClass to set
 	 */
 	public void setCssClass(String cssClass) {
+		Assert.notNull(cssClass);
 		this.cssClass = cssClass;
 	}
 
@@ -314,6 +306,7 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the currentPageNo to set
 	 */
 	public void setCurrentPageNo(int currentPageNo) {
+		Assert.notNull(currentPageNo);
 		this.currentPageNo = currentPageNo;
 	}
 
@@ -378,6 +371,7 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the maxIndexPerPage to set
 	 */
 	public void setMaxIndexPerPage(Integer maxIndexPerPage) {
+		Assert.notNull(maxIndexPerPage);
 		this.maxIndexPerPage = maxIndexPerPage;
 	}
 
@@ -386,6 +380,7 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the maxRowPerPage to set
 	 */
 	public void setMaxRowPerPage(Integer maxRowPerPage) {
+		Assert.notNull(maxRowPerPage);
 		this.maxRowPerPage = maxRowPerPage;
 	}
 
@@ -394,6 +389,7 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the maxRowPerPageParamName to set
 	 */
 	public void setMaxRowPerPageParamName(String maxRowPerPageParamName) {
+		Assert.notNull(maxRowPerPageParamName);
 		this.maxRowPerPageParamName = maxRowPerPageParamName;
 	}
 
@@ -402,6 +398,7 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the numberOfRow to set
 	 */
 	public void setNumberOfRow(Integer numberOfRow) {
+		Assert.notNull(numberOfRow);
 		this.numberOfRow = numberOfRow;
 	}
 
@@ -410,6 +407,7 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the onclick to set
 	 */
 	public void setOnclick(String onclick) {
+		Assert.notNull(onclick);
 		this.onclick = onclick;
 	}
 
@@ -418,6 +416,7 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the pageNoParamName to set
 	 */
 	public void setPageNoParamName(String pageNoParamName) {
+		Assert.notNull(pageNoParamName);
 		this.pageNoParamName = pageNoParamName;
 	}
 
@@ -426,6 +425,7 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the queryString to set
 	 */
 	public void setQueryString(String queryString) {
+		Assert.notNull(queryString);
 		this.queryString = queryString;
 	}
 
