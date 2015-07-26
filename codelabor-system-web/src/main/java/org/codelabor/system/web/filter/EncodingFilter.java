@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
  */
 public class EncodingFilter extends BaseFilterImpl {
 	/**
-	 * 인코딩</br>기본값은 UTF-8을 사용한다.
+	 * 인코딩 기본값은 UTF-8을 사용한다.
 	 */
 	protected String encoding = "UTF-8";
 	/**

@@ -27,22 +27,21 @@ import org.slf4j.LoggerFactory;
 
 /**
  * URI 패턴 매처 유틸
- * 
+ *
  * @author Shin Sang-jae
- * 
+ *
  */
 public class URIPatternMatcherUtils {
 	/**
 	 * 로거
 	 */
-	private static Logger logger = LoggerFactory
-			.getLogger(URIPatternMatcherUtils.class);
+	private static Logger logger = LoggerFactory.getLogger(URIPatternMatcherUtils.class);
 
 	/**
-	 * Ant 스타일 패스 패턴에 매칭되는지 확인한다.</br> 제외 패턴이 존재할 경우, 제외 패턴에 포함된다면 무조건 false, 제외
-	 * 패턴에 포함되지 않고 포함 패턴이 없거나 포함 패턴에 일치하지 않으면 false를 리턴한다.</br> 제외 패턴이 없을 경우, 포함
-	 * 패턴이 없거나 패턴에 일치하지 않으면 false를 리턴한다.
-	 * 
+	 * Ant 스타일 패스 패턴에 매칭되는지 확인한다. 
+	 * 제외 패턴이 존재할 경우, 제외 패턴에 포함된다면 무조건 false, 제외 패턴에 포함되지 않고 포함 패턴이 없거나 포함 패턴에 일치하지 않으면 false를 리턴한다. 
+	 * 제외 패턴이 없을 경우, 포함 패턴이 없거나 패턴에 일치하지 않으면 false를 리턴한다.
+	 *
 	 * @param includePatterns
 	 *            포함할 패턴
 	 * @param excludePatterns
@@ -51,19 +50,15 @@ public class URIPatternMatcherUtils {
 	 *            요청받은 URI
 	 * @return 매칭 여부
 	 */
-	static public boolean matchByAntStylePathPattern(
-			List<String> includePatterns, List<String> excludePatterns,
-			String requestURI) {
+	static public boolean matchByAntStylePathPattern(List<String> includePatterns, List<String> excludePatterns, String requestURI) {
 		boolean isMatched = false;
 
 		if (excludePatterns != null) {
-			if (ListUtils
-					.containsByAntStylePattern(excludePatterns, requestURI)) {
+			if (ListUtils.containsByAntStylePattern(excludePatterns, requestURI)) {
 				// bypass
 			} else {
 				if (includePatterns != null) {
-					if (ListUtils.containsByAntStylePattern(includePatterns,
-							requestURI)) {
+					if (ListUtils.containsByAntStylePattern(includePatterns, requestURI)) {
 						isMatched = true;
 					} else {
 						isMatched = false;
@@ -74,8 +69,7 @@ public class URIPatternMatcherUtils {
 			}
 		} else {
 			if (includePatterns != null) {
-				if (ListUtils.containsByAntStylePattern(includePatterns,
-						requestURI)) {
+				if (ListUtils.containsByAntStylePattern(includePatterns, requestURI)) {
 					isMatched = true;
 				} else {
 					isMatched = false;
@@ -90,7 +84,7 @@ public class URIPatternMatcherUtils {
 
 	/**
 	 * 확장자 패턴에 매칭되는지 확인한다.
-	 * 
+	 *
 	 * @param includePatterns
 	 *            포함할 패턴
 	 * @param excludePatterns
@@ -99,8 +93,7 @@ public class URIPatternMatcherUtils {
 	 *            요청 받은 URI
 	 * @return 매칭 여부
 	 */
-	static public boolean matchByExtension(List<String> includePatterns,
-			List<String> excludePatterns, String requestURI) {
+	static public boolean matchByExtension(List<String> includePatterns, List<String> excludePatterns, String requestURI) {
 		boolean isMatched = false;
 
 		String filename = FilenameUtils.getName(requestURI);
@@ -141,7 +134,7 @@ public class URIPatternMatcherUtils {
 
 	/**
 	 * URI가 패턴에 매칭되는지 확인한다.
-	 * 
+	 *
 	 * @param includePatterns
 	 *            포함할 패턴
 	 * @param excludePatterns
@@ -150,8 +143,7 @@ public class URIPatternMatcherUtils {
 	 *            요청받은 URI
 	 * @return 매칭 여부
 	 */
-	static public boolean matchByURI(List<String> includePatterns,
-			List<String> excludePatterns, String requestURI) {
+	static public boolean matchByURI(List<String> includePatterns, List<String> excludePatterns, String requestURI) {
 		boolean isMatched = false;
 
 		if (excludePatterns != null) {

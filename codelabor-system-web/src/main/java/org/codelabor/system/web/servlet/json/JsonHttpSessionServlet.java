@@ -45,7 +45,7 @@ public class JsonHttpSessionServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 5498874994938492455L;
 	/**
-	 * 인코딩</br>기본값은 UTF-8을 사용한다.
+	 * 인코딩 기본값은 UTF-8을 사용한다.
 	 */
 	protected String encoding = "UTF-8";
 	private final Logger logger = LoggerFactory

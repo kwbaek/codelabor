@@ -45,7 +45,7 @@ public class JsonCalendarServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 5860293886282746503L;
 	/**
-	 * 인코딩</br>기본값은 UTF-8을 사용한다.
+	 * 인코딩 기본값은 UTF-8을 사용한다.
 	 */
 	protected String encoding = "UTF-8";
 

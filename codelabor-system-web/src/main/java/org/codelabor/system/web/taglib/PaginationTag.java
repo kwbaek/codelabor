@@ -371,8 +371,11 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the maxIndexPerPage to set
 	 */
 	public void setMaxIndexPerPage(Integer maxIndexPerPage) {
-		Assert.notNull(maxIndexPerPage);
-		this.maxIndexPerPage = maxIndexPerPage;
+		if (maxIndexPerPage != null) {
+			this.maxIndexPerPage = maxIndexPerPage;
+		} else {
+			logger.warn("maxIndexPerPage you entered is null, So there is no change on maxIndexPerPage. (curreunt value: {})", this.maxIndexPerPage);
+		}
 	}
 
 	/**
@@ -380,8 +383,11 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the maxRowPerPage to set
 	 */
 	public void setMaxRowPerPage(Integer maxRowPerPage) {
-		Assert.notNull(maxRowPerPage);
-		this.maxRowPerPage = maxRowPerPage;
+		if (maxRowPerPage != null) {
+			this.maxRowPerPage = maxRowPerPage;
+		} else {
+			logger.warn("maxRowPerPage you entered is null, So there is no change on maxRowPerpage. (curreunt value: {})", this.maxRowPerPage);
+		}
 	}
 
 	/**
@@ -389,8 +395,12 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the maxRowPerPageParamName to set
 	 */
 	public void setMaxRowPerPageParamName(String maxRowPerPageParamName) {
-		Assert.notNull(maxRowPerPageParamName);
-		this.maxRowPerPageParamName = maxRowPerPageParamName;
+		if (maxRowPerPageParamName != null) {
+			this.maxRowPerPageParamName = maxRowPerPageParamName;
+		} else {
+			logger.warn("maxRowPerPageParamName you entered is null, So there is no change on maxRowPerPageParamName. (curreunt value: {})",
+					this.maxRowPerPageParamName);
+		}
 	}
 
 	/**
@@ -398,8 +408,11 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the numberOfRow to set
 	 */
 	public void setNumberOfRow(Integer numberOfRow) {
-		Assert.notNull(numberOfRow);
-		this.numberOfRow = numberOfRow;
+		if (numberOfRow != null) {
+			this.numberOfRow = numberOfRow;
+		} else {
+			logger.warn("numberOfRow you entered is null, So there is no change on numberOfRow. (curreunt value: {})", this.numberOfRow);
+		}
 	}
 
 	/**
@@ -416,8 +429,11 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the pageNoParamName to set
 	 */
 	public void setPageNoParamName(String pageNoParamName) {
-		Assert.notNull(pageNoParamName);
-		this.pageNoParamName = pageNoParamName;
+		if (pageNoParamName != null) {
+			this.pageNoParamName = pageNoParamName;
+		} else {
+			logger.warn("pageNoParamName you entered is null, So there is no change on pageNoParamName. (curreunt value: {})", this.pageNoParamName);
+		}
 	}
 
 	/**
@@ -425,8 +441,11 @@ public class PaginationTag extends SimpleTagSupport {
 	 *            the queryString to set
 	 */
 	public void setQueryString(String queryString) {
-		Assert.notNull(queryString);
-		this.queryString = queryString;
+		if (queryString != null) {
+			this.queryString = queryString;
+		} else {
+			logger.warn("queryString you entered is null, So there is no change on queryString. (curreunt value: {})", this.queryString);
+		}
 	}
 
 }

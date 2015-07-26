@@ -85,8 +85,7 @@ public class RequestUtils {
 	 *            요청
 	 * @return HttpServletRequest 정보 Map
 	 */
-	public static Map<String, Object> getHttpServletRequestMap(
-			ServletRequest request) {
+	public static Map<String, Object> getHttpServletRequestMap(ServletRequest request) {
 		Map<String, Object> attribMap = new HashMap<String, Object>();
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		attribMap.put("authType", httpServletRequest.getAuthType());
@@ -97,10 +96,8 @@ public class RequestUtils {
 		attribMap.put("remoteUser", httpServletRequest.getRemoteUser());
 		attribMap.put("requestURI", httpServletRequest.getRequestURI());
 		attribMap.put("servletPath", httpServletRequest.getServletPath());
-		attribMap.put("isRequestedSessionIdFromCookie",
-				httpServletRequest.isRequestedSessionIdFromCookie());
-		attribMap.put("isRequestedSessionIdFromURL",
-				httpServletRequest.isRequestedSessionIdFromURL());
+		attribMap.put("isRequestedSessionIdFromCookie", httpServletRequest.isRequestedSessionIdFromCookie());
+		attribMap.put("isRequestedSessionIdFromURL", httpServletRequest.isRequestedSessionIdFromURL());
 		return attribMap;
 	}
 
@@ -188,8 +185,7 @@ public class RequestUtils {
 	 * @throws Exception
 	 *             예외
 	 */
-	public static ServerDto getServerDto(ServletRequest request)
-			throws Exception {
+	public static ServerDto getServerDto(ServletRequest request) throws Exception {
 		ServerDto serverDto = new ServerDto();
 		serverDto.setName(request.getServerName());
 		serverDto.setPort(request.getServerPort());
@@ -217,11 +213,11 @@ public class RequestUtils {
 	}
 
 	/**
-	 * 요청받은 url 문자열 중, schema 부터 context path 까지의 문자열을 리턴한다.
-	 * 예를 들어 http://localhost:8080/example/index.jsp 가 Doc Root 아래의 인덱스 페치지라고 가정할 경우,
-	 * http://localhost:8080/example 와 같은 문아열을 리턴한다.
-	 * 이 때, 80 포트는 생략된다.
+	 * 요청받은 url 문자열 중, schema 부터 context path 까지의 문자열을 리턴한다. 예를 들어 http://localhost:8080/example/index.jsp 가 Doc Root 아래의 인덱스 페치지라고 가정할 경우,
+	 * http://localhost:8080/example 와 같은 문아열을 리턴한다. 이 때, 80 포트는 생략된다.
+	 * 
 	 * @param request
+	 *            요청
 	 * @return 요청 받은 url 중 schema 부너 context path 까지의 문자열
 	 */
 	public static String getRequestUrlToContextPath(HttpServletRequest request) {
